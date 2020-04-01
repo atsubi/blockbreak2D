@@ -6,7 +6,8 @@ public class barController : MonoBehaviour
 {
     Rigidbody2D rigid2d;
     float moveForce = 30.0f;
-    float maxSpeed = 5.0f;
+    float maxSpeed = 7.0f;
+    int forward;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +19,16 @@ public class barController : MonoBehaviour
     void Update()
     {
         // barの力の向きを設定
-        int forward = 0;
+        this.forward = 0;
         if ( Input.GetKey(KeyCode.RightArrow) ) forward = 1;
         if ( Input.GetKey(KeyCode.LeftArrow) ) forward = -1;
+    }
 
+    void FixedUpdate() 
+    {
         // 入力が無い場合は止まる
         if ( forward == 0 ) {
-            this.rigid2d.velocity = Vector3.zero;
+            this.rigid2d.velocity = new Vector3(0.0f, 0.0f, 0.0f);
         }
         
         // プレイヤーのスピードを算出
