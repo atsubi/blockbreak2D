@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameDirector : MonoBehaviour
 {
-    GameObject　infoarea;
-
+    GameObject infoarea;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,7 @@ public class GameDirector : MonoBehaviour
         this.infoarea = GameObject.Find("InfoArea");
         float width = this.infoarea.GetComponent<SpriteRenderer>().bounds.size.x;
         this.infoarea.transform.localScale = new Vector3(Screen.width/width, 1, 1);
+
     }
 
     // Update is called once per frame
