@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ballController : MonoBehaviour
 {
@@ -19,9 +20,14 @@ public class ballController : MonoBehaviour
         // 残玉も減らし、玉が無い場合はゲームオーバー
         if ( transform.position.y < -6 ) {
 
+            // 残玉0ならゲームオーバー
             // 残玉を減らす
-            GameDirector.stockdata--;
-            
+            if ( GameDirector.stockdata == 0 ) {
+                SceneManager.LoadScene("GameOverScene");
+            } else {
+                GameDirector.stockdata--;
+            }
+
             // 初期位置に戻す
             transform.position = new Vector3(0.0f, -1.5f, 0.0f);
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;

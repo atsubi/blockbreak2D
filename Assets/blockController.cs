@@ -22,6 +22,9 @@ public class blockController : MonoBehaviour
         // スコア更新
         GameDirector.scoredata += 10;
 
+        // blockの数を減らす
+        GameDirector.block_num--;
+
         // オブジェクト破棄
         Destroy(gameObject);
 

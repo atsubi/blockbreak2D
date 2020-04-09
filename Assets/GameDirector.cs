@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
@@ -10,13 +11,25 @@ public class GameDirector : MonoBehaviour
     GameObject score;
     GameObject stock;
 
-    public static float passtime = 0;
-    public static int scoredata = 0;
-    public static int stockdata = 3;
+    public static float passtime;
+    public static int scoredata;
+    public static int stockdata;
+    public static int block_num;
     
+    void Init()
+    {
+        GameDirector.passtime = 0;
+        GameDirector.scoredata = 0;
+        GameDirector.stockdata = 2;
+        GameDirector.block_num = 25;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        // ゲーム情報初期化
+        Init();
+
         // オブジェクトを画面サイズに合わせる
         FillScreen();
 
@@ -51,6 +64,11 @@ public class GameDirector : MonoBehaviour
 
         // 残玉表示
         this.stock.GetComponent<Text>().text = GameDirector.stockdata.ToString("0");
+
+        // blockの数が0なら、ゲームクリア
+        if ( GameDirector.block_num == 0 ) {
+            SceneManager.LoadScene("ClearScene");
+        }
 
     }
 
