@@ -21,7 +21,7 @@ public class GameDirector : MonoBehaviour
         GameDirector.passtime = 0;
         GameDirector.scoredata = 0;
         GameDirector.stockdata = 2;
-        GameDirector.block_num = 25;
+        GameDirector.block_num = 12;
     }
 
     // Start is called before the first frame update

@@ -41,8 +41,8 @@ public class barController : MonoBehaviour
         float speed = Mathf.Abs(this.rigid2d.velocity.x);
         
         // 最高速度以下ならば、移動する
-        // if ( speed < this.maxSpeed ) {
+        if ( speed < this.maxSpeed ) {
             this.rigid2d.AddForce(transform.right * forward * this.moveForce);
-        // }
+        }
     }
 }
