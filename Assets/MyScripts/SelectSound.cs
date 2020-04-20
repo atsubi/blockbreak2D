@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ClearDirector : MonoBehaviour
+public class SelectSound : MonoBehaviour
 {
-    GameObject score;
+    public static AudioSource aud;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.score = GameObject.Find("score");
+        DontDestroyOnLoad(this);
+        SelectSound.aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.score.GetComponent<Text>().text = GameDirector.scoredata.ToString("0000");
+        
     }
 }

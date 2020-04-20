@@ -20,6 +20,7 @@ public class blockController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) 
     {
+
         // 爆発演出
         this.generator.GetComponent<ExplosionGenerator>().Explosion(
             transform.position);

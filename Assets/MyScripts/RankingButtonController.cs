@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartButtonController : MonoBehaviour
+public class RankingButtonController : MonoBehaviour
 {
-    public void OnClick() {
-        SceneManager.LoadScene("GameScene");
+    public void onClick()
+    {
+        SelectSound.aud.Play();
+        SceneManager.LoadScene("RankingScene");
     }
 
     // Start is called before the first frame update
